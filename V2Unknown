@@ -1,0 +1,216 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
+
+task.wait(3)
+
+script.Parent = game.StarterPlayer.StarterPlayerScripts
+
+task.wait(1)
+
+local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Th3Unknown-Script/UnknownHubGui/refs/heads/main/MainGui"))()
+
+-- Create Main UI Window
+local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2]", "Yes, it's true!")
+
+-- **Main Page**
+local Home = UI:addPage("⚙️ Main", 1, true, 6)
+Home:addLabel("⚙️ Main Functions", "Essential Features")
+
+Home:addButton("🏠 Apartment Bypass", function()
+    local player = game.Players.LocalPlayer
+    local function clearInsideApartments()
+        while true do
+            local character = workspace:FindFirstChild(player.Name)
+            if character then
+                local apartments = character:FindFirstChild("InsideApartments")
+                if apartments then apartments:Destroy() end
+            end
+            wait(1)
+        end
+    end
+    task.spawn(clearInsideApartments)
+end)
+
+Home:addButton("📷 Remove Camera Shake", function()
+    local g_ = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Camera_Bob")
+    if g_ then g_:Destroy() end
+end)
+
+Home:addButton("🎁 Auto Gifts", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/5wQNYkTB"))()
+end)
+
+-- **Auto Farm Page**
+local LP = UI:addPage("💵 Auto Farm", 2, false, 6)
+LP:addLabel("💵 Auto Farming", "All Farming Features")
+
+local sugarFarmRunning = false
+
+LP:addToggle("🌿 Auto Sugar Farm", function(value)
+    sugarFarmRunning = value
+    spawn(function()
+        while sugarFarmRunning do
+            local targetCFrame = CFrame.new(185.41, -401.02, 664.97)
+
+            local function findTargetPart()
+                for _, part in ipairs(workspace:GetDescendants()) do
+                    if part:IsA("BasePart") and (part.CFrame.Position - targetCFrame.Position).Magnitude < 0.1 then
+                        return part
+                    end
+                end
+                return nil
+            end
+
+            local targetPart = findTargetPart()
+            if targetPart then
+                for _, child in ipairs(targetPart:GetChildren()) do
+                    if child:IsA("ProximityPrompt") then
+                        fireproximityprompt(child)
+                    end
+                end
+            end
+
+            local UI = game:GetService("ReplicatedStorage").UI.SugarNPC
+            UI:FireServer("Purchase", "SugarCane")
+            wait(0.1)
+            UI:FireServer("Purchase", "BakingPowder")
+
+            local player = game.Players.LocalPlayer
+            local backpack = player.Backpack
+
+            for _, item in ipairs({"BakingPowder", "SugarCane"}) do
+                if backpack:FindFirstChild(item) then
+                    backpack[item].Parent = player.Character
+                end
+            end
+
+            wait(0.1)
+            UI:FireServer("Sell")
+
+            if not sugarFarmRunning then break end
+            wait(1.5)
+        end
+    end)
+end)
+
+LP:addButton("🛡️ ANTI-AFK", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/T9VDKXez"))()
+end)
+
+-- **Combat Page**
+local combatPage = UI:addPage("🎯 Combat", 2, false, 6)
+combatPage:addLabel("🎯 Combat Features", "PvP & Combat Tools")
+
+combatPage:addButton("🎯 Aimbot (Mobile Support)", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/m9Q1s7sg"))()
+end)
+
+combatPage:addButton("🧠 Head Expander", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/T03iK6Ay"))()
+end)
+
+combatPage:addButton("👀 Highlight ESP (PvP Checker)", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/QcEsWdLY"))()
+end)
+
+combatPage:addButton("📍 Track Lines (PvP Checker)", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/CHpQhRcv"))()
+end)
+
+-- **Animations Page**
+local Animations = UI:addPage("🏃 Animations", 2, false, 6)
+Animations:addLabel("🏃 Animations", "All Animation Features")
+
+local animationTracks = {}
+
+local function toggleAnimation(state, animationName)
+    local player = game.Players.LocalPlayer
+    local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+    if not humanoid then return end
+
+    local animator = humanoid:FindFirstChildOfClass("Animator") or Instance.new("Animator", humanoid)
+
+    if state then
+        for _, anim in ipairs(workspace:GetDescendants()) do
+            if anim:IsA("Animation") and anim.Name:lower():find(animationName) then
+                local track = animator:LoadAnimation(anim)
+                track:Play()
+                animationTracks[animationName] = track
+                return
+            end
+        end
+    else
+        if animationTracks[animationName] then
+            animationTracks[animationName]:Stop()
+            animationTracks[animationName]:Destroy()
+            animationTracks[animationName] = nil
+        end
+    end
+end
+
+Animations:addToggle("🐍 Snake Crawl", function(state) toggleAnimation(state, "snake crawl") end)
+Animations:addToggle("🔒 Handcuff Animation", function(state) toggleAnimation(state, "cuffed") end)
+Animations:addToggle("🛑 Crouch Animation", function(state) toggleAnimation(state, "crouch") end)
+
+-- **Character Page**
+local Character = UI:addPage("🧍 Character", 2, false, 6)
+Character:addLabel("🧍 Character Features", "All Character Mods")
+
+Character:addButton("🍬 Auto Skittles", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/eB7W81Ey"))()
+end)
+
+Character:addButton("⚡ Infinite Stamina", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Z5JQtqeP"))()
+end)
+
+Character:addButton("🍔 Infinite Hunger", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/aeZxPh0x"))()
+end)
+
+Character:addButton("☯️ Infinite Karma", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/5NPtManB"))()
+end)
+
+Character:addLabel("👕 Customization", "Clothing & Accessories")
+
+Character:addButton("🔗 CrossChain", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/EuTmKu63"))()
+end)
+
+Character:addButton("💎 HunnidChain", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/PQCY6Wd1"))()
+end)
+
+Character:addLabel("👟 Shoes & Add-ons", "Buy Available Shoes")
+
+Character:addButton("🎄 Xmas Shoes [$200]", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/nZip8SyM"))()
+end)
+
+Character:addButton("🥇 Gold Xmas Shoes [$200]", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Hu4e1mkB"))()
+end)
+
+Character:addButton("🔴 Redmas Shoes [$200]", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/AaaQCUij"))()
+end)
+
+Character:addButton("👟 AirRunners Shoes [$???]", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/iZ4A9arz"))()
+end)
+
+Character:addButton("MADE BY UNKNOWN", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/bQH9fWPi"))()
+end)
+
+-- **Cars Page (Coming Soon)**
+local Cars = UI:addPage("🚗 Cars (Coming Soon)", 2, false, 6)
+Cars:addLabel("🚗 Cars Features", "Car Mods Coming Soon!")
+
+local TEST = UI:addPage("DEV CMDS", 2, false, 6)
+TEST:addButton("Test", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/eThUKkYf"))()
+end)
+
+
+warn("UnknownHub")
