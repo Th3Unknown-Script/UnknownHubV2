@@ -6,7 +6,7 @@ local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Th3Unknow
 task.wait(2)
 
 -- Create Main UI Window
-local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.03]", "Yes, it's true!")
+local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.04]", "<3 made with love by Unknown.")
 
 -- **Main Page**
 local Home = UI:addPage("⚙️ Main", 1, true, 6)
@@ -90,9 +90,17 @@ LP:addToggle("🌿 Auto Sugar Farm", function(value)
     end)
 end)
 
+--[[
+
 LP:addButton("🛡️ ANTI-AFK", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/T9VDKXez"))()
 end)
+
+LP:addToggle("🛡️ ANTI-AFK", function()  
+loadstring(game:HttpGet("https://pastebin.com/raw/T9VDKXez"))()
+end)
+
+--]]
 
 -- **Combat Page**
 local combatPage = UI:addPage("🎯 Combat", 2, false, 6)
@@ -145,7 +153,6 @@ local function toggleAnimation(state, animationName)
     end
 end
 
-Animations:addToggle("🐍 Snake Crawl", function(state) toggleAnimation(state, "snake crawl") end)
 Animations:addToggle("🔒 Handcuff Animation", function(state) toggleAnimation(state, "cuffed") end)
 Animations:addToggle("🛑 Crouch Animation", function(state) toggleAnimation(state, "crouch") end)
 
