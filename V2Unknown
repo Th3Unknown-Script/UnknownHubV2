@@ -6,7 +6,7 @@ local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Th3Unknow
 task.wait(2)
 
 -- Create Main UI Window
-local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.02]", "Yes, it's true!")
+local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.03]", "Yes, it's true!")
 
 -- **Main Page**
 local Home = UI:addPage("⚙️ Main", 1, true, 6)
@@ -195,8 +195,12 @@ Shoes:addButton("🔴 Redmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/AaaQCUij"))()
 end)
 
--- **Cars Page (Coming Soon)**
+--[[
+
+**Cars Page (Coming Soon)**
 local Cars = UI:addPage("🚗 Cars (Coming Soon)", 2, false, 6)
 Cars:addLabel("🚗 Cars Features", "Car Mods Coming Soon!")
+
+--]]
 
 print("UnknownHubV2")
