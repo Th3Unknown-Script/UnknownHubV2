@@ -6,7 +6,7 @@ local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Th3Unknow
 task.wait(2)
 
 -- Create Main UI Window
-local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.01]", "Yes, it's true!")
+local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.02]", "Yes, it's true!")
 
 -- **Main Page**
 local Home = UI:addPage("⚙️ Main", 1, true, 6)
@@ -199,4 +199,4 @@ end)
 local Cars = UI:addPage("🚗 Cars (Coming Soon)", 2, false, 6)
 Cars:addLabel("🚗 Cars Features", "Car Mods Coming Soon!")
 
-warn("UnknownHubV2")
+print("UnknownHubV2")
