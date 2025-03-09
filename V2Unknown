@@ -1,15 +1,12 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
-
-task.wait(3)
-
-script.Parent = game.StarterPlayer.StarterPlayerScripts
-
-task.wait(1)
-
+-- Load External Scripts
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
 local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Th3Unknown-Script/UnknownHubGui/refs/heads/main/MainGui"))()
 
+-- Wait Few Seconds Before Opening Main
+task.wait(2)
+
 -- Create Main UI Window
-local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2]", "Yes, it's true!")
+local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.01]", "Yes, it's true!")
 
 -- **Main Page**
 local Home = UI:addPage("⚙️ Main", 1, true, 6)
@@ -44,7 +41,6 @@ local LP = UI:addPage("💵 Auto Farm", 2, false, 6)
 LP:addLabel("💵 Auto Farming", "All Farming Features")
 
 local sugarFarmRunning = false
-
 LP:addToggle("🌿 Auto Sugar Farm", function(value)
     sugarFarmRunning = value
     spawn(function()
@@ -195,22 +191,8 @@ Character:addButton("🔴 Redmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/AaaQCUij"))()
 end)
 
-Character:addButton("👟 AirRunners Shoes [$???]", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/iZ4A9arz"))()
-end)
-
-Character:addButton("MADE BY UNKNOWN", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/bQH9fWPi"))()
-end)
-
 -- **Cars Page (Coming Soon)**
 local Cars = UI:addPage("🚗 Cars (Coming Soon)", 2, false, 6)
 Cars:addLabel("🚗 Cars Features", "Car Mods Coming Soon!")
 
-local TEST = UI:addPage("DEV CMDS", 2, false, 6)
-TEST:addButton("Test", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/eThUKkYf"))()
-end)
-
-
-warn("UnknownHub")
+warn("UnknownHubV2")
