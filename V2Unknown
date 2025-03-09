@@ -36,6 +36,8 @@ Home:addButton("🎁 Auto Gifts", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/5wQNYkTB"))()
 end)
 
+
+
 -- **Auto Farm Page**
 local LP = UI:addPage("💵 Auto Farm", 2, false, 6)
 LP:addLabel("💵 Auto Farming", "All Farming Features")
@@ -177,17 +179,19 @@ Character:addButton("💎 HunnidChain", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/PQCY6Wd1"))()
 end)
 
-Character:addLabel("👟 Shoes & Add-ons", "Buy Available Shoes")
+-- **Shoes Page**
 
-Character:addButton("🎄 Xmas Shoes [$200]", function()
+local Shoes = UI:addPage("👟 Shoes & Add-ons", 2, false, 6)
+
+Shoes:addButton("🎄 Xmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/nZip8SyM"))()
 end)
 
-Character:addButton("🥇 Gold Xmas Shoes [$200]", function()
+Shoes:addButton("🥇 Gold Xmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/Hu4e1mkB"))()
 end)
 
-Character:addButton("🔴 Redmas Shoes [$200]", function()
+Shoes:addButton("🔴 Redmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/AaaQCUij"))()
 end)
 
