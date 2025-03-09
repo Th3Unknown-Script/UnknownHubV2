@@ -6,7 +6,7 @@ local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Th3Unknow
 task.wait(2)
 
 -- Create Main UI Window
-local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.05]", "<3 made with love by Unknown.")
+local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V2.06]", "<3 made with love by Unknown.")
 
 -- **Main Page**
 local Home = UI:addPage("⚙️ Main", 1, true, 6)
@@ -89,18 +89,16 @@ LP:addToggle("🌿 Auto Sugar Farm", function(value)
         end
     end)
 end)
-
+--[[
 LP:addButton("🛡️ ANTI-AFK", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/T9VDKXez"))()
 end)
 
---[[
+--]]
 
 LP:addToggle("🛡️ ANTI-AFK", function()  
 loadstring(game:HttpGet("https://pastebin.com/raw/T9VDKXez"))()
 end)
-
---]]
 
 -- **Combat Page**
 local combatPage = UI:addPage("🎯 Combat", 2, false, 6)
