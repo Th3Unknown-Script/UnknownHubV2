@@ -262,7 +262,6 @@ end)
 Shoes:addButton("Air1Diors Shoes [$15000]", function()
     loadstring(game:HttpGet("https://pastebin.com/q41maCq8))()
 end)
-
 --[[
 
 **Cars Page (Coming Soon)**
