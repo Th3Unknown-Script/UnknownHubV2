@@ -214,6 +214,36 @@ Animations:addToggle("🔒 Handcuff Animation", function(state) toggleAnimation(
 Animations:addToggle("🛑 Crouch Animation", function(state) toggleAnimation(state, "crouch") end)
 
 -- **Character Page**
+
+local plrs = game.Players -- gets all the players within the server currently
+local plr = game.Players.LocalPlayer -- gets the local player of this script
+local chr -- a recursive variable (refreshes on spawn)
+
+local userID = plr.UserId -- takes their userID
+local gamepassID =  114075639-- let's say this is your gamepass' ID
+
+plr.CharacterAdded:Connect(function(chr2) -- triggers when character loads/reloads in
+    chr = chr2 -- overrides chr with chr2 which is plr's current char
+end)
+
+local repSto = game:GetService("ReplicatedStorage") -- let's say your gun is stored in the replicated storage
+local sampleItem = repSto:WaitForChild("Vector") -- e.g this is your gun as aforementioned, being referred to
+local marketserv = game:GetService("MarketplaceService") -- main serv for "gamepasses" as you wanted
+
+plr.Chatted:Connect(function(msg) -- fires when player chats
+    if marketserv:UserOwnsGamePassAsync(userID, gamepassID) then -- checks if they own the gamepass
+        local hum = chr:WaitForChild("Humanoid") -- look sfor a hum obj in the chr
+        if (hum ~= nil) and (hum.Health > 0) then -- ensures if they are not dead
+            if msg == "/sg vector" then -- ensures if it's the correct prompt
+                if not chr:FindFirstChild("Vector") or plr.Backpack:FindFirstChild("Vector") then -- ensures if they do not have the gun
+                    local cloned = sampleItem:Clone() -- clones it, obviously
+                    cloned.Parent = plr.Backpack -- hurray they got it now!
+                end
+            end
+        end
+    end
+end)
+
 local Character = UI:addPage("🧍 Character", 2, false, 6)
 Character:addLabel("🧍 Character Features", "All Character Mods")
 
