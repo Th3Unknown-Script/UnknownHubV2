@@ -260,8 +260,9 @@ Shoes:addButton("🔴 Redmas Shoes [$200]", function()
 end)
 
 Shoes:addButton("Air1Diors Shoes [$15000]", function()
-    loadstring(game:HttpGet("https://pastebin.com/MwuHN1jV"))()
+    loadstring(game:HttpGet("https://pastebin.com/q41maCq8))()
 end)
+
 --[[
 
 **Cars Page (Coming Soon)**
