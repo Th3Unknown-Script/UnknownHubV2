@@ -12,13 +12,10 @@ local UI = GUI:CreateWindow("UnknownHub | Best SL2 Script | Made by Unknown | [V
 local Home = UI:addPage("⚙️ Main", 1, true, 6)
 Home:addLabel("⚙️ Main Functions", "Essential Features")
 
-
---------------------------
 local sugarFarmRunning = false
 local antiAFKEnabled = false
 local showPotToggle = false
 local billboard = nil
---------------------------
 
 Home:addButton("🏠 Apartment Bypass", function()
     local player = game.Players.LocalPlayer
@@ -47,13 +44,11 @@ end)
 local LP = UI:addPage("💵 Auto Farm", 2, false, 6)
 LP:addLabel("💵 Auto Farming", "All Farming Features")
 
--- Anti-AFK function (simulates small inputs without moving the character)
 local function antiAFK()
     while antiAFKEnabled do
-        -- Simulate a small mouse movement or input
         local VirtualInputManager = game:GetService("VirtualInputManager")
         VirtualInputManager:SendMouseMoveEvent(1, 1) -- Moves mouse slightly
-        wait(30) -- Adjust the wait time as needed
+        wait(30)
     end
 end
 
@@ -72,7 +67,6 @@ local function updateESPText(visible)
         end
 
         if targetPart and not billboard then
-            -- Create the BillboardGui and TextLabel
             billboard = Instance.new("BillboardGui")
             billboard.Adornee = targetPart
             billboard.Size = UDim2.new(0, 200, 0, 50)
@@ -151,7 +145,7 @@ LP:addToggle("🌿 Auto Sugar Farm", function(value)
         end
     end)
 end)
--- Anti-AFK Toggle
+
 LP:addToggle("🛡️ Anti-AFK", function(value)
     antiAFKEnabled = value
     if antiAFKEnabled then
@@ -214,18 +208,6 @@ Animations:addToggle("🔒 Handcuff Animation", function(state) toggleAnimation(
 Animations:addToggle("🛑 Crouch Animation", function(state) toggleAnimation(state, "crouch") end)
 
 -- **Character Page**
-
-local plrs = game.Players -- gets all the players within the server currently
-local plr = game.Players.LocalPlayer -- gets the local player of this script
-local chr -- a recursive variable (refreshes on spawn)
-
-local userID = plr.UserId -- takes their userID
-local gamepassID =  114075639-- let's say this is your gamepass' ID
-
-plr.CharacterAdded:Connect(function(chr2) -- triggers when character loads/reloads in
-    chr = chr2 -- overrides chr with chr2 which is plr's current char
-end)
-
 local Character = UI:addPage("🧍 Character", 2, false, 6)
 Character:addLabel("🧍 Character Features", "All Character Mods")
 
