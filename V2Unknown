@@ -263,8 +263,8 @@ Shoes:addButton("🎄 Xmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/nZip8SyM"))()
 end)
 
-Shoes:addButton("🎄 Air1Diors Shoes [$15000]", function() 
-    loadstring(game:HttpGet("https://pastebin.com/raw/0xxRXMS7"))()   
+Shoes:addButton("🎄 Air1Diors Shoes [$15000]", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/9zLjYgG8Shoes"))()
 end)
 
 Shoes:addButton("🥇 Gold Xmas Shoes [$200]", function()
