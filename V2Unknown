@@ -267,18 +267,6 @@ Shoes:addButton("🥇 Gold Xmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/Hu4e1mkB"))()
 end)
 
-Shoes:addButton("🎄 Air1Diors Shoes [$15000]", function() 
-local args = {
-    [1] = "Purchase",
-    [2] = "Air1Diors"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("UI"):WaitForChild("Shoes"):FireServer(unpack(args))
-                      end
-                   end
-                end
-              end)
-
 Shoes:addButton("🔴 Redmas Shoes [$200]", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/AaaQCUij"))()
 end)
